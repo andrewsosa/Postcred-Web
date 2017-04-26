@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #banner.container-fluid
+    .container
+      h1.display-3 Postcred
+      p.lead Does a movie have a scene after the credits? Find out here.
+  
+  .container-fluid
+    .grid-wrap
+        
+      .row.equal
+        each m in movies
+          .col-6.col-sm-4.col-md-3.col-lg-2.card-wrap
+            .md-card.bg-faded
+              - url = 'http://localhost:3000/' + m.poster
+              .img-wrap
+                img(src= url)
+              .label
+                span= m.name
+                
+        
