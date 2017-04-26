@@ -32,5 +32,6 @@ npm-debug.log
 # Built styles
 *.css
 *.css.map
+*.sass-cache
 
 *.DS_Store
