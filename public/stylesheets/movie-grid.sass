@@ -1,5 +1,6 @@
 // movie-grid.sass
 @import "includes/aspect-ratio"
+@import "includes/css3-mixins"
 
 $half-gutter: $grid-gutter-width-base / 2
 
@@ -15,11 +16,19 @@ $half-gutter: $grid-gutter-width-base / 2
             position: relative
             display: flex
             flex-direction: column
-            background-color: #000000
 
+            background-color: #000000
             transition: all .2s ease-in-out
 
-            // @include aspect-ratio(27, 1)
+            &:hover
+                transform: scale(1.05)
+                box-shadow: 0 15px 30px rgba(0,0,0,0.3)
+
+                z-index: $zindex-popover
+
+                .label
+                    opacity: 1
+                    z-index: $zindex-popover + 1
 
             .img-wrap
                 height: 100%
@@ -30,24 +39,21 @@ $half-gutter: $grid-gutter-width-base / 2
 
             .label
                 position: absolute
-                bottom: 0
-                height: 64px
+                height: 100%
                 width: 100%
                 padding: 8px
                 font-weight: 600
 
-                // background-color: rgba(96, 125, 139, .9)
                 background-color: rgba(0,0,0,0.8)
                 color: #fff
-                // display: none
+
                 opacity: 0
                 transition: all .2s ease-in-out
 
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                text-align: center
 
-            &:hover
-                transform: scale(1.025)
-                z-index: $zindex-popover
-
-                .label
-                    opacity: 1
-                    z-index: $zindex-popover + 1
+            
