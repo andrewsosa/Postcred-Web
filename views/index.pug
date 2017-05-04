@@ -4,15 +4,13 @@ block content
   #banner.container-fluid
     .container
       h1.display-3 Postcred 
-      p.lead Does a 🎥  have a scene after the credits? Find out here 💥
-  
+      p.lead Does a 🎥 have a scene after the credits? Find out here 💥
   .container-fluid
-    .grid-wrap
-        
+    .grid-wrap      
       .row.equal
         each m in movies
           .col-6.col-sm-4.col-md-3.col-lg-2.card-wrap
-            .md-card.bg-faded
+            .md-card.bg-faded(movie=m)
               - url = 'http://localhost:3000/' + m.poster 
               .img-wrap
                 img(src= url)
@@ -27,5 +25,6 @@ block content
                 else
                   .scene.small No extra scene 👎
                     
-                
+  script.
+    const movies = !{JSON.stringify(movies)}
         
