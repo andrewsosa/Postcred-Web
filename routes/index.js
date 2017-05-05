@@ -1,9 +1,10 @@
-var express = require('express');
-var router  = express.Router();
+const express = require('express');
+const router  = express.Router();
 
-var request = require('request');
-
+const request = require('request');
 const storage = require('@google-cloud/storage');
+
+require('dotenv').config();
 
 const client = storage({
   projectId: 'postcred-df5cf'
@@ -24,7 +25,7 @@ router.get('/', (req, res, next) => {
     }
     else {
       let movies = JSON.parse(body);
-      res.render('index', {movies: movies});
+      res.render('index', {movies: movies, IMG_HOST: process.env.IMG_HOST});
     }
 
   });
